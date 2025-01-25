@@ -1,0 +1,24 @@
+@media (min-width: 768px) {
+    /* Navigation */
+    nav {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  
+    nav a {
+      margin: 0;
+      padding: 0.5rem 1rem;
+    }
+  
+    /* Main layout */
+    main {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1rem;
+    }
+  
+    .card:nth-child(1) {
+      grid-column: span 2;
+    }
+  }
+  
