@@ -12,3 +12,10 @@ const lastModified = document.getElementById('lastModified');
 if (lastModified) {
     lastModified.textContent = `Last Updated: ${document.lastModified}`;
 }
+const toggleButton = document.getElementById("dark-mode-toggle");
+
+toggleButton.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  document.body.classList.toggle("light-mode");
+});
+

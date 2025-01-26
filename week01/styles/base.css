@@ -130,3 +130,11 @@ footer #lastModified {
   color: #fdd835;
   font-weight: bold;
 }
+body.light-mode {
+  background-color: #fff;
+  color: #000;
+}
+body.dark-mode {
+  background-color: #121212;
+  color: #fff;
+}
