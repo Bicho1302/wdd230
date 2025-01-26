@@ -3,24 +3,28 @@
   header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 2rem;
+    justify-content: center;
+    flex-direction: column; /* Ensure image and name stay stacked */
+    padding: 1.5rem 0;
+    text-align: center;
   }
 
   header img {
-    width: 100px;
-    height: 100px;
+    margin: 0; /* Remove extra margins */
+    width: 90px; /* Slightly larger image on larger screens */
+    height: 90px;
   }
 
   header span {
-    font-size: 2rem;
+    margin-top: 0.3rem; /* Minimal spacing between image and name */
+    font-size: 1.8rem;
   }
 
   /* Navigation */
   nav ul {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 2rem;
     padding: 0.5rem 0;
   }
 
@@ -28,27 +32,27 @@
     margin: 0;
   }
 
+  nav a {
+    padding: 0.5rem 1.5rem;
+  }
+
   /* Main Content */
   main {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+    display: flex;
+    flex-direction: column; /* Stack cards in a column */
     gap: 2rem;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 2rem auto;
   }
 
   .card {
-    margin: 0;
-    padding: 2rem;
-  }
-
-  .card:nth-child(1) {
-    grid-column: span 2;
+    padding: 1.5rem;
   }
 
   /* Footer */
   footer {
     font-size: 1rem;
-    padding: 1.5rem;
+    padding: 2rem;
   }
 }
+
