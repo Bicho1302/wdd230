@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Standard Meta Tags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Page Title and Description -->
+  <title>Chamber of Commerce | Home</title>
+  <meta name="description" content="Official Chamber of Commerce website. Join our community to network, learn about local events, and discover member spotlights.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Social Media Meta Tags -->
+  <meta property="og:title" content="Chamber of Commerce | Home">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta property="og:url" content="https://www.examplechamber.com">
+
+  <!-- CSS: Normalize / Reset and Base Styles -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="styles/base.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <h1>Chamber of Commerce</h1>
+      <!-- Hamburger Button for Mobile Navigation -->
+      <button id="nav-toggle" aria-label="Toggle Navigation">
+        <span class="hamburger"></span>
+      </button>
+      <!-- Main Navigation -->
+      <nav id="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Image Section -->
+    <section class="hero">
+      <img src="images/hero.jpg" alt="Hero image showing community and business networking">
+      <div class="hero-text">
+        <h2>Welcome to Our Chamber</h2>
+        <p>Connecting businesses and communities for a stronger future.</p>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="call-to-action">
+      <h3>Join the Chamber Today!</h3>
+      <a href="membership.html" class="cta-btn">Become a Member</a>
+    </section>
+
+    <!-- Current Event(s) Section -->
+    <section class="current-events">
+      <h3>Upcoming Events</h3>
+      <article class="event">
+        <h4>Business Networking Night</h4>
+        <p>Join us for an evening of networking and opportunities with local business leaders.</p>
+      </article>
+      <article class="event">
+        <h4>Annual Chamber Gala</h4>
+        <p>Celebrate our community at our annual gala with dinner and entertainment.</p>
+      </article>
+    </section>
+
+    <!-- Weather Card Section -->
+    <section class="weather-card">
+      <h3>Local Weather</h3>
+      <div class="weather-info">
+        <p><strong>Location:</strong> Anytown</p>
+        <p><strong>Temperature:</strong> 75°F</p>
+        <p><strong>Condition:</strong> Sunny</p>
+      </div>
+    </section>
+
+    <!-- Company Spotlights Section -->
+    <section class="company-spotlights">
+      <h3>Member Spotlights</h3>
+      <div class="spotlights">
+        <div class="spotlight">
+          <img src="images/company1.jpg" alt="Company One">
+          <h4>Company One</h4>
+          <p>Leading innovation in technology and service.</p>
+        </div>
+        <div class="spotlight">
+          <img src="images/company2.jpg" alt="Company Two">
+          <h4>Company Two</h4>
+          <p>Committed to community and sustainable growth.</p>
+        </div>
+        <div class="spotlight">
+          <img src="images/company3.jpg" alt="Company Three">
+          <h4>Company Three</h4>
+          <p>Delivering excellence in every project.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <address>
+        <p>
+          Chamber of Commerce<br>
+          123 Business Blvd, Suite 100<br>
+          Business City, BC 12345<br>
+          Email: info@examplechamber.com<br>
+          Phone: (123) 456-7890
+        </p>
+      </address>
+      <p>
+        Developed by Your Full Name | Project for WDD 230 | Last Modified: 
+        <span id="lastModified"></span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Dynamic Content -->
+  <script>
+    // Dynamically display the last modified date of the page
+    document.getElementById('lastModified').textContent = document.lastModified;
+
+    // Responsive Navigation Toggle Script
+    const navToggle = document.getElementById('nav-toggle');
+    const mainNav = document.getElementById('main-nav');
+
+    navToggle.addEventListener('click', function() {
+      mainNav.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
