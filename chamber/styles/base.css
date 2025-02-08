@@ -359,10 +359,12 @@
   /* Gallery styling */
   .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
   }
   .gallery figure {
+    width: 100%;
     margin: 0;
     overflow: hidden;
   }
