@@ -26,3 +26,9 @@
   visitMessageEl.textContent = message;
   // Store the current visit timestamp for future visits.
   localStorage.setItem('lastVisit', currentVisit);
+  const navToggle = document.getElementById('nav-toggle');
+  const mainNav = document.getElementById('main-nav');
+
+  navToggle.addEventListener('click', function() {
+    mainNav.classList.toggle('open');
+  });

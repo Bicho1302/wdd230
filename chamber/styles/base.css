@@ -338,7 +338,7 @@
     display: grid;
     grid-template-columns: 1fr 3fr;
     gap: 1rem;
-    margin: 2rem 0;
+    margin: 4rem 0 2rem 0;
   }
   
   /* Sidebar styling */
@@ -358,18 +358,18 @@
   
   /* Gallery styling */
   .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
   .gallery figure {
-    width: 100%;
     margin: 0;
-    overflow: hidden;
+    text-align: center;
+  
   }
   .gallery img {
     width: 100%;
+    margin: 0 auto;
     display: block;
     transition: transform 0.3s ease;
   }
@@ -393,3 +393,9 @@
       grid-template-columns: 1fr;
     }
   }  
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    gap: 2rem;
+  }
