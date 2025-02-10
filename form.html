@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" pc>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Lab - Form Validation</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="week01/styles/form.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <h1>Course Home Page Header</h1>
+  </header>
+
+  <!-- Navigation Section -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="form.html">Form</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content: The Form -->
+  <main>
+    <h2>Registration Form</h2>
+    <form method="get" action="record.html" id="registrationForm">
+      <fieldset>
+        <legend>Register</legend>
+        
+        <!-- Username Field -->
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input 
+            type="text" 
+            id="username" 
+            name="username" 
+            required>
+        </div>
+        
+        <!-- Password Field -->
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            required 
+            pattern="[A-Za-z0-9]{8,}"
+            title="Password must be at least 8 characters long and can only contain letters and numbers.">
+        </div>
+        
+        <!-- Confirm Password Field -->
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password:</label>
+          <input 
+            type="password" 
+            id="confirmPassword" 
+            name="confirmPassword" 
+            required>
+        </div>
+        
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email">Email (must be @byui.edu):</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required 
+            pattern="[a-zA-Z0-9._%+\-]+@byui\.edu$"
+            title="Please enter a valid email address from the byui.edu domain.">
+        </div>
+        
+        <!-- Page Rating Field -->
+        <div class="form-group">
+          <label for="rating">Page Rating (1-10):</label>
+          <input 
+            type="range" 
+            id="rating" 
+            name="rating" 
+            min="1" 
+            max="10" 
+            step="1" 
+            value="5">
+          <output id="ratingValue">5</output>
+        </div>
+        
+        <!-- Submit Button -->
+        <div class="form-group">
+          <button type="submit">Submit</button>
+        </div>
+        
+      </fieldset>
+    </form>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 Course Name. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript for additional validation and live feedback -->
+  <script>
+    // Update the displayed value of the range input
+    const rating = document.getElementById('rating');
+    const ratingValue = document.getElementById('ratingValue');
+    rating.addEventListener('input', function() {
+      ratingValue.textContent = rating.value;
+    });
+
+    // Validate that the two password fields match before form submission
+    const form = document.getElementById('registrationForm');
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirmPassword');
+
+    form.addEventListener('submit', function(event) {
+      if (password.value !== confirmPassword.value) {
+        event.preventDefault();
+        alert("Passwords do not match. Please re-enter your password.");
+        // Clear both password fields and focus on the first
+        password.value = "";
+        confirmPassword.value = "";
+        password.focus();
+      }
+    });
+  </script>
+</body>
+</html>
