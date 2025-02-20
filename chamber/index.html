@@ -48,11 +48,19 @@
       min-width: 120px;
     }
     /* Spotlight Members */
-    #spotlight-members {
+    #spotlight-container {
+      display: flex;
       margin: 1rem 0;
       padding: 1rem;
       background: #efe;
       border-radius: 5px;
+      flex-direction: row;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+  flex-wrap: wrap; /* optional: allows cards to wrap on smaller screens */
+  gap: 1rem;       /* optional: adds spacing between cards */
+
     }
     .spotlight-card {
       display: inline-block;
@@ -63,6 +71,7 @@
       border-radius: 5px;
       text-align: center;
       vertical-align: top;
+      align-items: center;
     }
     .spotlight-card img {
       width: 100px;
