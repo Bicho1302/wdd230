@@ -22,7 +22,7 @@
   <!-- CSS: Normalize / Reset and Base Styles -->
   <link rel="stylesheet" href="styles/larger.css">
   <link rel="stylesheet" href="styles/base.css">
-
+</head>
 
   <!-- Header Section -->
   <header>
@@ -44,41 +44,8 @@
       </nav>
     </div>
   </header>
-  <style>
-    /* Additional rules to support the directory views */
+ 
 
-    /* Grid view for member cards */
-    .directory-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-    /* List view: one column */
-    .directory-list {
-      display: block;
-    }
-    /* Styling for each member card / list item */
-    .member-card {
-      border: 1px solid #ccc;
-      padding: 1rem;
-      background: #fff;
-      border-radius: 5px;
-    }
-    .member-card img {
-        width: 150px;
-  height: 150px;
-  object-fit: cover;
-      margin-bottom: 0.5rem;
-    }
-    /* Toggle button styling */
-    .toggle-button {
-      margin-bottom: 1rem;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-  </style>
-</head>
 <body>
   <!-- Header Section (preserved from your home page) -->
   <header>
@@ -132,4 +99,38 @@
     });
   </script>
 </body>
+<style>
+    /* Additional rules to support the directory views */
+
+    /* Grid view for member cards */
+    .directory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    /* List view: one column */
+    .directory-list {
+      display: block;
+    }
+    /* Styling for each member card / list item */
+    .member-card {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 5px;
+    }
+    .member-card img {
+        width: 150px;
+  height: 150px;
+  object-fit: cover;
+      margin-bottom: 0.5rem;
+    }
+    /* Toggle button styling */
+    .toggle-button {
+      margin-bottom: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
 </html>
