@@ -51,85 +51,78 @@
       })
       .catch(error => console.error('Error fetching members data:', error));
   
-// Replace with your actual OpenWeatherMap API key
-const apiKey = 'bd5a95d7d72fe87d1f401fbb551029cb';
-
-// Set your desired city (adjust as needed)
-const city = 'Spanish Fork';
-
-// Select HTML elements for current weather
-const currentTempEl = document.getElementById('temp');
-const weatherDescEl = document.getElementById('description');
-const weatherIconEl = document.getElementById('weather-icon');
-// Container for the forecast cards
+const apiKey = 'bd5a95d7d72fe87d1f401fbb551029cb'; // Replace with your API key
+const city = 'Spanish Fork'; // Change to your desired location
 const forecastContainer = document.getElementById('forecast-container');
+const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
+const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`;
+fetch(weatherURL)
+  .then(response => response.json())
+  .then(data => {
+    
+    document.getElementById('temp').textContent = `${Math.round(data.main.temp)}°F`;
+    document.getElementById('description').textContent = data.weather[0].description;
+    document.getElementById('weather-icon').src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    document.getElementById('weather-icon').alt = data.weather[0].description;
+    document.getElementById('forecast-container');
+    
+  })
+  .catch(error => console.error('Error fetching weather:', error));
 
-// Construct API URLs for current weather and forecast
-const currentWeatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
-const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`;
+const baseURL = 'https://bicho1302.github.io/wdd230/'; 
 
-// Function to display current weather data
-function displayCurrentWeather(data) {
-  const temp = Math.round(data.main.temp);
-  const description = data.weather[0].description;
-  const icon = data.weather[0].icon;
+const linksURL = `${baseURL}data/links.json`;
 
-  currentTempEl.textContent = `${temp}°F`;
-  weatherDescEl.textContent = description;
-  weatherIconEl.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-  weatherIconEl.alt = description;
+async function getLinks() {
+try {
+  const response = await fetch(linksURL);
+  const data = await response.json();
+ 
+  displayLinks(data.weeks);
+} catch (error) {
+  console.error('Error fetching links data:', error);
 }
-
-// Function to display a 3-day forecast
-function displayForecast(data) {
-  // The forecast API returns data in 3-hour increments.
-  // We'll pick one forecast per day around noon (12:00:00)
+}
+fetch(forecastUrl)
+.then(response => response.json())
+.then(data => {
+  // Use the first forecast data point as the "current" conditions
+  if (data.list && data.list.length > 0) {
+    const current = data.list[0];
+    currentTempEl.textContent = `${Math.round(current.main.temp)}°F`;
+    weatherDescEl.textContent = current.weather[0].description;
+  }
+  // Process forecast data for the next 3 days
+  // We'll pick one forecast per day from around 12:00:00 (noon)
   const forecasts = {};
   data.list.forEach(item => {
     if (item.dt_txt.includes("12:00:00")) {
-      // Extract the date portion (YYYY-MM-DD)
       const date = item.dt_txt.split(" ")[0];
       forecasts[date] = item;
     }
   });
-
+  // Display up to three forecast cards
   let count = 0;
-  // Loop through forecast entries and create cards for up to 3 days
   for (let date in forecasts) {
     if (count >= 3) break;
     const forecast = forecasts[date];
     const card = document.createElement('div');
     card.classList.add('forecast-card');
-
+    // Display date
     const dateEl = document.createElement('h4');
     dateEl.textContent = date;
     card.appendChild(dateEl);
-
+    // Temperature
     const tempEl = document.createElement('p');
     tempEl.textContent = `${Math.round(forecast.main.temp)}°F`;
     card.appendChild(tempEl);
-
+    // Weather description
     const descEl = document.createElement('p');
     descEl.textContent = forecast.weather[0].description;
     card.appendChild(descEl);
-
     forecastContainer.appendChild(card);
     count++;
   }
-}
+})
 
-// Fetch and display current weather data
-fetch(currentWeatherURL)
-  .then(response => response.json())
-  .then(data => {
-    displayCurrentWeather(data);
-  })
-  .catch(error => console.error('Error fetching current weather:', error));
-
-// Fetch and display the forecast data
-fetch(forecastURL)
-  .then(response => response.json())
-  .then(data => {
-    displayForecast(data);
-  })
-  .catch(error => console.error('Error fetching forecast data:', error));
+.catch(error => console.error('Error fetching forecast data:', error));

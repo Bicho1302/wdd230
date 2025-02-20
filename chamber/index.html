@@ -23,9 +23,80 @@
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/base.css">
   <script src="data/data.js" defer></script>
+  <style>
+    /* --- Additional rules for new features --- */
+    /* Weather Section */
+    #weather-section {
+      margin: 1rem 0;
+      padding: 1rem;
+      background: #eef;
+      border-radius: 5px;
+    }
+    #forecast-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .forecast-card {
+      display: inline-block;
+      padding: 0.5rem;
+      margin: 0.5rem;
+      background: #dde;
+      border-radius: 5px;
+      text-align: center;
+      min-width: 120px;
+    }
+    /* Spotlight Members */
+    #spotlight-members {
+      margin: 1rem 0;
+      padding: 1rem;
+      background: #efe;
+      border-radius: 5px;
+    }
+    .spotlight-card {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.5rem;
+      background: #cfc;
+      border: 1px solid #9c9;
+      border-radius: 5px;
+      text-align: center;
+      vertical-align: top;
+    }
+    .spotlight-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+    /* Meet & Greet Banner */
+    .banner {
+      background: #ffc;
+      padding: 1rem;
+      text-align: center;
+      border: 1px solid #cc9;
+      border-radius: 5px;
+      position: relative;
+      margin-bottom: 1rem;
+    }
+    .banner button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: #c00;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+    }
+  </style>
 
 </head>
 <body>
+  
   <!-- Header Section -->
   <header>
     <div class="container">
@@ -49,6 +120,10 @@
 
   <!-- Main Content -->
   <main>
+    <section id="meetGreetBanner" class="banner">
+      <p>Join us for the Chamber of Commerce Meet and Greet on Wednesday at 7:00 p.m.!</p>
+      <button id="closeBanner">X</button>
+      </section>
     <!-- Hero Image Section -->
     <section class="hero">
       <img src="images/chamberheroimage2.png" alt="Hero image showing community and business networking">
@@ -86,28 +161,17 @@
         <img id="weather-icon" src="" alt="Weather Icon">
         <p id="temp">Loading temperature…</p>
         <p id="description">Loading description…</p>
+        <h3>3-Day Forecast</h3>
+        <div id="forecast-container"></div>
+     
       </div>
     </section>
 
     <!-- Company Spotlights Section -->
     <section class="company-spotlights">
       <h3>Member Spotlights</h3>
-      <div class="spotlights">
-        <div class="spotlight">
-          <img src="images/epsilon.jpeg" alt="Company One">
-          <h4>Epsilon</h4>
-          <p>Leading innovation in technology and service.</p>
-        </div>
-        <div class="spotlight">
-          <img src="images/beta.webp" alt="Company Two">
-          <h4>Beta</h4>
-          <p>Committed to community and sustainable growth.</p>
-        </div>
-        <div class="spotlight">
-          <img src="images/alpha.jpeg" alt="Company Three">
-          <h4>Alpha Consulting</h4>
-          <p>Delivering excellence in every project.</p>
-        </div>
+      <div id="spotlight-container"></div>
+    
       </div>
     </section>
   </main>
